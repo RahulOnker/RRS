@@ -1,0 +1,25 @@
+<h1> Train Details</h1>
+<p>train index page</p>
+<table id="customers">
+  <thead>
+    <tr>
+      <th>Train_no</th>
+      <th>Train_Name</th>
+      <th>Source</th>
+      <th>Destination</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trains.each do |train| %>
+      <tr>
+        <td><%= train.train_no %></td>
+        <td><%= train.train_name  %></td>
+        <td><%= train.origin  %></td>
+        <td><%= train.destination %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
