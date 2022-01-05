@@ -1,0 +1,27 @@
+<h1> Railway Booking System </h1>
+<p>booking index page</p>
+<%= link_to "Create Booking", new_booking_path, :class => 'navbar-link'  %>
+<table id="customers">
+  <thead>
+    <tr>
+      <th>Source</th>
+      <th>Destination</th>
+      <th>Date</th>
+      
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.source %></td>
+        <td><%= booking.destination %></td>
+        <td><%= booking.date %></td>
+        
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "Back", root_path, :class => 'navbar-link'  %>

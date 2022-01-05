@@ -1,0 +1,37 @@
+<h1>Create Booking</h1>
+<div>
+<%= form_for(:booking) do |form| %>
+    <div>
+    <%= form.label :Source %>
+    <%= form.text_field :source, placeholder:"Source" %>
+    </div>
+    <div>
+    <%= form.label :Destination %>
+    <%= form.text_field :destination, placeholder:"Destination" %>
+    </div>
+    <div>
+    <%= form.label :Date %>
+    <%= form.text_field :date, placeholder:"Enter date" %>
+    </div>
+    <br>
+    <% if @train %>
+      <%= form.hidden_field :train_id %>
+    <% else %>
+      <div>
+        <%= form.label :train_id, "Select the train for this booking:" %><br>
+        <%= form.collection_select :train_id, Train.all, :id, :train_name %>
+      </div>
+    <% end %>
+    <br>
+    <div>
+    <% if @user %>
+      	<%= form.hidden_field :user_id %>
+      <% else  %>
+      	<%= form.label :user_id, "Select the user for this booking:" %><br>
+        <%= form.collection_select :user_id, User.all, :id, :email %>
+      <% end %>
+    <%= form.submit %>
+    </div>
+    <%= link_to 'Back', bookings_path %>
+<% end %>
+</div>
